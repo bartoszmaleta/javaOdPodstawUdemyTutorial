@@ -1,6 +1,6 @@
-package app;
+package mutlidimensionalArraysSection7;
 
-public class App {
+public class MultidimensionalArrays {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello Java");
     }
