@@ -19,7 +19,8 @@ class A {
     }
     
     class B {
-
+        // cannot create static variables here
+        // because it is not static class
         B() {
             System.out.println("B = Nested class constructor");
         }
@@ -42,6 +43,7 @@ class A {
     }
 
     static class C {
+        // can create static variables here
         C() {
             System.out.println("C = Nested class constructor");
         }
