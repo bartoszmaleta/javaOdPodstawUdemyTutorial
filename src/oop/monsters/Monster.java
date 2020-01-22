@@ -11,10 +11,11 @@ public class Monster {
     }
 
     public Monster() {
-
+        System.out.println("Default constructor from class Monster");
     }
 
     public Monster(double walkingSpeed, double health) {
+        System.out.println("Not default constructor from class Monster");
         this.walkingSpeed = walkingSpeed;
         this.health = health;
     }
