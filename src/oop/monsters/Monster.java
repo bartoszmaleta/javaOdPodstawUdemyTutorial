@@ -1,9 +1,13 @@
 package oop.monsters;
 
-public class Monster {
+public abstract class Monster {
     private double walkingSpeed = 10;
     private double health;
 
+
+    abstract protected void description();
+
+    // methods should be protected
     public void attack() {
 
 

@@ -16,6 +16,8 @@ public class Inheritance {
 
         // skeleton.attack();
 
+        // Monster monster = new Monster(); // cannot because it is abstract
+        
         Monster monster2 = new Skeleton(32, 200);
 
         monster2.attack();

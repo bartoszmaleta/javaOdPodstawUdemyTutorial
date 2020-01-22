@@ -25,4 +25,10 @@ public class Skeleton extends Monster {
         System.out.println("Not default constructor from class Skeleton");
     }
 
+    @Override
+    protected void description() {
+
+    }
+
+
 }
