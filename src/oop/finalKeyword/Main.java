@@ -36,9 +36,8 @@ class Employee extends Person {
     final Date dateOfEmployment;
 
     Date getDateOfEmployment() {
-
     // final Date getDateOfEmployment() {
-    // cannot Override final method! Below will get an error 
+    // cannot Override final method! Below will get an error  
         return this.dateOfEmployment;
     }
 }
