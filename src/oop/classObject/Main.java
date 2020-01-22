@@ -23,8 +23,12 @@ public class Main {
             System.out.println("point Equals point3");
         }
 
+        System.out.println("-----------");
 
-        
+        if (point.equals(point)) {
+            System.out.println("point Equals point");
+        }
+
     }
 }
 
@@ -51,8 +55,18 @@ class Point {
 
     // override method of Super class Object
     @Override
-    public boolean equals(Object o) {
-        Point objectReceived = (Point) o;
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        
+        Point objectReceived = (Point) obj;
 
         // if (this.x == objectReceived.x && this.y == objectReceived.y) {
             // return true;
