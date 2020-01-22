@@ -36,12 +36,29 @@ public class Bottle {
 
         try {
             System.out.println(5/0);
+            // super class Exception, all exception inherits from Exception
+        // } catch (Exception ex) {
         } catch (ArithmeticException ex) {
-            System.out.println("");
+            System.out.println("Error occured = " + ex.getMessage());
+        } finally {
+            System.out.println("Finally executed");
         }
-
-
         System.out.println("whatever");
-        
+
+
+        int a = 10;
+        try {
+            if (a == 10) {
+                throw new MyException("a is equal to 10!");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+
+class MyException extends Exception {
+    public MyException(String string) {
+        super(string);
     }
 }
