@@ -6,7 +6,7 @@ public class Bank {
         
         System.out.println(account.getBalance());
 
-        account.start(4);
+        account.createAccount(4);
         System.out.println(account.getBalance());
     }
 }
@@ -22,9 +22,29 @@ class Account {
         return this.balance;
     }
 
-    void start(double rate) {
+    void createAccount(double rate) {
+        // "double rate" is not available for "class Inters"
+        
+        // but if you use "final"
+        // void createAccount(final double rate) {
+        // then you does not need parameters below!!!!
+            
         Interest interest = new Interest(rate);
         // interest.changeBalance(rate);
+
+        // CAN ALSO CREATE CLASS INSIDE METHOD! IT WILL WORK
+        // class Interest {
+            // private double interestRate;
+            // 
+            // public Interest(double interestRate) {
+                // this.interestRate = interestRate;
+                // this.changeBalance(interestRate);
+            // }
+            // void changeBalance(double rate) {
+                // double interestTemp = (balance * rate) / 100;
+                // balance += interestTemp;
+            // }
+        // }
     }
 
     class Interest {
