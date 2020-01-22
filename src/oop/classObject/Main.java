@@ -29,6 +29,21 @@ public class Main {
             System.out.println("point Equals point");
         }
 
+        System.out.println("-----------");
+
+        System.out.println(point);
+
+        System.out.println("-----------");
+
+        Object[] points = new Point[4];
+        points[0] = new Point(2, 8);
+        points[1] = new Point(6, 5);
+        points[2] = new Point(4, 4);
+        points[3] = new Point(99, 1);
+
+        for (int i = 0; i < points.length; i++) {
+            System.out.println(points[i]);
+        }
     }
 }
 
@@ -78,6 +93,16 @@ class Point {
 
         return (this.x == objectReceived.x && this.y == objectReceived.y);
     }
+
+
+    // if this method is commented
+    // i will get references
+    @Override
+    public String toString() {
+        return "X = " + getX() + ", Y = " + getY();
+    }
+    
+    
     
 }
 
