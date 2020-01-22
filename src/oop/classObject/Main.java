@@ -101,8 +101,5 @@ class Point {
     public String toString() {
         return "X = " + getX() + ", Y = " + getY();
     }
-    
-    
-    
 }
 
