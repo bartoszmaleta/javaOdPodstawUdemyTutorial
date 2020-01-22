@@ -1,5 +1,7 @@
 package oop.exceptions;
 
+import java.util.logging.Logger;
+
 public class Bottle {
     private double litres;
 
@@ -15,29 +17,25 @@ public class Bottle {
         this.litres += amount;
     }
 
-    boolean remove(double amount) {
+    void remove(double amount) throws NotEnoughLittres{
         if (amount < litres) {
             this.litres -= amount;
         } else {
-            return false;
+            throw new NotEnoughLittres("Not enough litres");
         }
-        return true;
     }
 
-    void transfer(double amount, Bottle whichBottle) {
-        if (this.remove(amount)) {
-            whichBottle.add(amount);
-        } else {
-            System.out.println("Not enough litres");
-        }
+    void transfer(double amount, Bottle whichBottle) throws NotEnoughLittres{
+        this.remove(amount);
+        whichBottle.add(amount);
     }
 
     public static void main(String[] args) {
 
         try {
-            System.out.println(5/0);
+            System.out.println(5 / 0);
             // super class Exception, all exception inherits from Exception
-        // } catch (Exception ex) {
+            // } catch (Exception ex) {
         } catch (ArithmeticException ex) {
             System.out.println("Error occured = " + ex.getMessage());
         } finally {
@@ -45,11 +43,10 @@ public class Bottle {
         }
         System.out.println("whatever");
 
-
         int a = 10;
         try {
             if (a == 10) {
-                System.out.println(5/0);
+                System.out.println(5 / 0);
                 throw new MyException("a is equal to 10!");
             }
         } catch (MyException ex) {
@@ -57,6 +54,16 @@ public class Bottle {
         } catch (ArithmeticException ex) {
             System.out.println(ex.getMessage());
         }
+
+        Bottle bottle1 = new Bottle(5);
+        Bottle bottle2 = new Bottle(10);
+
+        try {
+            bottle1.transfer(20, bottle2);
+        } catch (NotEnoughLittres ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
 }
 
@@ -65,3 +72,9 @@ class MyException extends Exception {
         super(string);
     }
 }
+
+class NotEnoughLittres extends Exception {
+    public NotEnoughLittres(String string) {
+        super(string);
+    }
+} 
