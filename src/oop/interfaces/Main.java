@@ -1,6 +1,7 @@
 package oop.interfaces;
 
 import java.util.Arrays;  
+import java.util.Collections;;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class Main {
         Arrays.sort(tab);
         System.out.println(tab[0]);
 
-        System.out.println("--------------");
+        System.out.println("-------------- Before sorting");
 
         Employee[] employees = new Employee[3];
         employees[0] = new Employee(40000);
@@ -25,9 +26,21 @@ public class Main {
         System.out.println(employees[0].getSalary());
         System.out.println(employees[0].compareTo(employees[1]));
         
-        System.out.println("--------------");
+        System.out.println("-------------- After sorting");
         Arrays.sort(employees);
         System.out.println(employees[0].compareTo(employees[1]));
+
+        System.out.println("--------------");
+        for (Employee employee : employees) {
+            System.out.println(employee.getSalary());
+        }
+
+
+        System.out.println("-------------- After sorting descending");
+        Arrays.sort(employees, Collections.reverseOrder());
+        for (Employee employee : employees) {
+            System.out.println(employee.getSalary());
+        }
 
 
     }
@@ -67,7 +80,8 @@ class Employee implements interfaceName, secondInterface, Comparable  {
         
         if (this.salary < receivedEmployee.salary) {
             return -1;
-        } else if (this.salary > receivedEmployee.salary) {
+        }
+        if (this.salary > receivedEmployee.salary) {
             return 1;
         }
 
