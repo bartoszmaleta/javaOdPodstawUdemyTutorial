@@ -4,7 +4,10 @@ public class Bank {
     public static void main(String[] args) {
         Account account = new Account(1000);
         
+        System.out.println(account.getBalance());
+
         account.start(4);
+        System.out.println(account.getBalance());
     }
 }
 
