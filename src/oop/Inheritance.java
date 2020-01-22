@@ -25,4 +25,8 @@ public class Inheritance {
         Monster monster3 = new Zombie();
         monster3.attack();
     }
+
+    void exampleMethod(Monster monster) {
+        
+    }
 }
