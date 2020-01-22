@@ -5,6 +5,7 @@ public class Main {
         Person[] people = new Person[4];
         people[0] = new Employee("Bartosz", "Kowalski", 232312);
         people[1] = new Student("John", "Smith");
+        people[3] = new Employee("Tom", "Cruise", 7777);
 
         people[0].getDescription();
 
@@ -24,6 +25,21 @@ public class Main {
             } else {
                 break;
             }
+            System.out.println();
+        }
+
+        System.out.println("------------");
+
+        for (Person person : people) {
+            if (person instanceof Employee) {
+                ((Employee)person).getDescription();
+                ((Employee)person).work();
+                System.out.println();
+            } else if (person instanceof Student) {
+                ((Student)person).getDescription();
+                System.out.println();
+            }
+
         }
     }
 }
@@ -54,6 +70,10 @@ class Employee extends Person {
         System.out.println("firstName = " + firstName);
         System.out.println("lastName = " + lastName);
         System.out.println("Salary = " + salary);
+    }
+
+    void work() {
+        System.out.println("Employee is working");
     }
 
 }
