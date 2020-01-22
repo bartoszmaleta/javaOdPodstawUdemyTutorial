@@ -2,12 +2,29 @@ package oop.trainingInstanceOfAndAbstractClasses;
 
 public class Main {
     public static void main(String[] args) {
-        Person[] person = new Person[4];
-        person[0] = new Employee("Bartosz", "Kowalski", 232312);
-        person[1] = new Student("John", "Smith");
+        Person[] people = new Person[4];
+        people[0] = new Employee("Bartosz", "Kowalski", 232312);
+        people[1] = new Student("John", "Smith");
 
-        person[0].getDescription();
+        people[0].getDescription();
 
+        for (int i = 0; i < people.length; i++) {
+            if (people[i] instanceof Person) {
+                people[i].getDescription();
+            } else {
+                break;
+            }
+        }
+
+        // or   (different for loop)
+
+        for (Person person : people) {
+            if (person instanceof Person) {
+                person.getDescription();
+            } else {
+                break;
+            }
+        }
     }
 }
 
@@ -20,7 +37,7 @@ abstract class Person {
         this.lastName = lastName;
     }
 
-    abstract void getDescription(); 
+    abstract void getDescription();
 }
 
 class Employee extends Person {
@@ -33,23 +50,24 @@ class Employee extends Person {
 
     @Override
     void getDescription() {
-System.out.println("I am employee");
-System.out.println("firstName = " + firstName);
-System.out.println("lastName = " + lastName);
-System.out.println("Salary = " + salary);
+        System.out.println("I am employee");
+        System.out.println("firstName = " + firstName);
+        System.out.println("lastName = " + lastName);
+        System.out.println("Salary = " + salary);
     }
 
 }
 
 class Student extends Person {
-   Student(String firstName, String lastName) {
-       super(firstName, lastName);
-   } 
+    Student(String firstName, String lastName) {
+        super(firstName, lastName);
+    }
 
-   @Override void getDescription() {
-    System.out.println("I am student");
-    System.out.println("firstName = " + firstName);
-    System.out.println("lastName = " + lastName);
-    
-   }
+    @Override
+    void getDescription() {
+        System.out.println("I am student");
+        System.out.println("firstName = " + firstName);
+        System.out.println("lastName = " + lastName);
+
+    }
 }
