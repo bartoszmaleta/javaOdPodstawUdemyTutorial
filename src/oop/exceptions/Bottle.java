@@ -49,9 +49,12 @@ public class Bottle {
         int a = 10;
         try {
             if (a == 10) {
+                System.out.println(5/0);
                 throw new MyException("a is equal to 10!");
             }
-        } catch (Exception ex) {
+        } catch (MyException ex) {
+            System.out.println(ex.getMessage());
+        } catch (ArithmeticException ex) {
             System.out.println(ex.getMessage());
         }
     }
