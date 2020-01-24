@@ -9,6 +9,7 @@ import java.util.TreeMap;
 public class Maps { 
     public static void main(String[] args) {
         Map<Integer, String> employees = new TreeMap<>();
+        printMap(employees);
 
         employees.put(111, "Bart");
         employees.put(112, "Bart2");
@@ -27,6 +28,17 @@ public class Maps {
         for (Entry<Integer, String> entry : setOfEntry) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
-        
+        printMap(employees);
+
+        employees.clear();
+        printMap(employees);
+    }
+
+    public static void printMap(Map<Integer, String> myMap) {
+        if (myMap.isEmpty()) {
+            System.out.println("Map is empty");
+        } else {
+            System.out.println(myMap);
+        }
     }
 }
